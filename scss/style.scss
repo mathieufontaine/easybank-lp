@@ -6,7 +6,13 @@ html {
 
 $primary-color: hsl(233, 26%, 24%);
 $text-color: hsl(233, 8%, 62%);
-$green: hsl(136, 65%, 51%);
+$green: rgb(49, 211, 92);
+$blue: rgb(43, 183, 218);
+$gradient: linear-gradient(
+  90deg,
+  rgba(49, 211, 92, 1) 0%,
+  rgba(43, 183, 218, 1) 100%
+);
 
 * {
   box-sizing: border-box;
@@ -29,6 +35,7 @@ h3,
 h4,
 p {
   margin-bottom: 16px;
+  margin-top: 16px;
   color: $primary-color;
   font-weight: 300;
 }
@@ -48,6 +55,9 @@ a {
   text-decoration: none;
   color: #fff;
   font-size: 0.8rem;
+  &:hover {
+    border-bottom: 1px solid white;
+  }
 }
 
 ul {
@@ -57,13 +67,11 @@ ul {
 .btn {
   display: inline-block;
   border: 0;
-  background: $green;
+  background: $gradient;
   color: #fff;
   border-radius: 20px;
   padding: 8px 30px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 0.7rem;
   margin-top: 10px;
   cursor: pointer;
 }
@@ -85,6 +93,37 @@ main {
   margin: auto;
   height: 100%;
   //   width: 90%;
+}
+.logo {
+  cursor: pointer;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  width: 100%;
+  .nav-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .nav-link {
+      color: $text-color;
+      padding: 20px;
+    }
+    :hover {
+      border-bottom: 1px solid $text-color;
+    }
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }
 
 .showcase {
@@ -145,10 +184,19 @@ main {
     grid-template-columns: repeat(4, 1fr);
     justify-content: flex-start;
     align-items: center;
-    grid-gap: 35px;
+    grid-gap: 25px;
     .article {
+      min-height: 300px;
+      height: 100%;
       background: white;
       cursor: pointer;
+      .thumbnail {
+        height: 200px;
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
       .text {
         padding: 10px 20px;
         span {
@@ -160,37 +208,32 @@ main {
 }
 
 footer {
-  //   padding: 40px 0 60px 0;
   background: $primary-color;
-  height: 250px;
+  height: 170px;
   .grid-footer {
-    .logos-box {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    padding: 40px 0;
+    padding: 24px 0;
+    height: 100%;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 4fr;
     justify-content: flex-start;
     align-items: center;
-    height: 80%;
+    .logos-box,
     .links-box1,
-    .links-box2 {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      // justify-content: flex-start;
-      // align-items: center;
-    }
+    .links-box2,
     .copyright-box {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+    .logos-box {
+      align-items: flex-start;
+      .social > svg {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+    .copyright-box {
       align-items: flex-end;
       p,
       .btn {

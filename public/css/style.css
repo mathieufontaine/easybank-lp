@@ -25,6 +25,7 @@ h3,
 h4,
 p {
   margin-bottom: 16px;
+  margin-top: 16px;
   color: #2d314d;
   font-weight: 300;
 }
@@ -49,6 +50,10 @@ a {
   font-size: 0.8rem;
 }
 
+a:hover {
+  border-bottom: 1px solid white;
+}
+
 ul {
   list-style: none;
 }
@@ -56,13 +61,12 @@ ul {
 .btn {
   display: inline-block;
   border: 0;
-  background: #31d35c;
+  background: -webkit-gradient(linear, left top, right top, from(#31d35c), to(#2bb7da));
+  background: linear-gradient(90deg, #31d35c 0%, #2bb7da 100%);
   color: #fff;
   border-radius: 20px;
   padding: 8px 30px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 0.7rem;
   margin-top: 10px;
   cursor: pointer;
 }
@@ -85,6 +89,63 @@ main {
   padding: 20px 150px;
   margin: auto;
   height: 100%;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.navbar {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr 1fr;
+      grid-template-columns: 1fr 3fr 1fr;
+  width: 100%;
+}
+
+.navbar .nav-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navbar .nav-items .nav-link {
+  color: #9698a6;
+  padding: 20px;
+}
+
+.navbar .nav-items :hover {
+  border-bottom: 1px solid #9698a6;
+}
+
+.navbar .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.navbar .btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .showcase {
@@ -178,12 +239,24 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-gap: 35px;
+  grid-gap: 25px;
 }
 
 .articles .grid .article {
+  min-height: 300px;
+  height: 100%;
   background: white;
   cursor: pointer;
+}
+
+.articles .grid .article .thumbnail {
+  height: 200px;
+}
+
+.articles .grid .article .thumbnail img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
 }
 
 .articles .grid .article .text {
@@ -196,11 +269,12 @@ main {
 
 footer {
   background: #2d314d;
-  height: 250px;
+  height: 170px;
 }
 
 footer .grid-footer {
-  padding: 40px 0;
+  padding: 24px 0;
+  height: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 2fr 1fr 1fr 4fr;
@@ -211,41 +285,11 @@ footer .grid-footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 80%;
 }
 
-footer .grid-footer .logos-box {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
+footer .grid-footer .logos-box,
 footer .grid-footer .links-box1,
-footer .grid-footer .links-box2 {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
+footer .grid-footer .links-box2,
 footer .grid-footer .copyright-box {
   height: 100%;
   display: -webkit-box;
@@ -258,6 +302,20 @@ footer .grid-footer .copyright-box {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+footer .grid-footer .logos-box {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+footer .grid-footer .logos-box .social > svg {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+footer .grid-footer .copyright-box {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
