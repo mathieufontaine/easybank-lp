@@ -14,9 +14,7 @@ body {
   font-family: "Public Sans", sans-serif;
   background: white;
   color: #9698a6;
-  font-size: 18px;
   line-height: 1.4;
-  font-weight: 300;
 }
 
 h1,
@@ -27,7 +25,7 @@ p {
   margin-bottom: 16px;
   margin-top: 16px;
   color: #2d314d;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 h1 {
@@ -35,8 +33,16 @@ h1 {
   line-height: 1.2;
 }
 
+h2 {
+  font-size: 1.8rem;
+}
+
 h4 {
   font-size: 1rem;
+}
+
+h4:hover {
+  color: #2acb97;
 }
 
 p {
@@ -51,7 +57,7 @@ a {
 }
 
 a:hover {
-  border-bottom: 1px solid white;
+  color: #2acb97;
 }
 
 ul {
@@ -65,9 +71,8 @@ ul {
   background: linear-gradient(90deg, #31d35c 0%, #2bb7da 100%);
   color: #fff;
   border-radius: 20px;
-  padding: 8px 30px;
+  padding: 12px 30px;
   font-size: 0.7rem;
-  margin-top: 10px;
   cursor: pointer;
 }
 
@@ -87,12 +92,13 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  height: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 main {
@@ -108,8 +114,31 @@ main {
   height: 100%;
 }
 
+#overlay {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  cursor: pointer;
+}
+
 .logo {
   cursor: pointer;
+}
+
+.nav {
+  z-index: 10;
+}
+
+.nav .container {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .navbar {
@@ -118,6 +147,7 @@ main {
   -ms-grid-columns: 1fr 3fr 1fr;
       grid-template-columns: 1fr 3fr 1fr;
   width: 100%;
+  height: 100px;
 }
 
 .navbar .nav-items {
@@ -130,15 +160,34 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
 }
 
-.navbar .nav-items .nav-link {
+.navbar .nav-items .nav-item {
+  width: 100px;
+  line-height: 97px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar .nav-items .nav-item .nav-link {
+  display: block;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+  width: 100%;
+  height: 100%;
+  background: #fff;
   color: #9698a6;
-  padding: 20px;
 }
 
-.navbar .nav-items :hover {
-  border-bottom: 1px solid #9698a6;
+.navbar .nav-items .nav-item:hover {
+  padding-bottom: 3px;
+  background: -webkit-gradient(linear, left top, right top, from(#31d35c), to(#2bb7da));
+  background: linear-gradient(90deg, #31d35c 0%, #2bb7da 100%);
+}
+
+.navbar .nav-items .nav-item:hover .nav-link {
+  color: #2d314d;
 }
 
 .navbar .logo {
@@ -180,10 +229,6 @@ main {
   cursor: pointer;
 }
 
-.nav-mobile .close {
-  display: none;
-}
-
 .menu-mobile {
   padding: 20px;
   position: absolute;
@@ -210,11 +255,27 @@ main {
   z-index: 2;
 }
 
-.menu-mobile a {
+.menu-mobile .nav-item {
+  width: 100%;
   padding: 16px;
+}
+
+.menu-mobile .nav-item a {
+  display: block;
+  height: 100%;
+  width: 100%;
   color: #2d314d;
   font-weight: 400;
   font-size: 1rem;
+}
+
+.menu-mobile .nav-item:hover {
+  background: -webkit-gradient(linear, left top, right top, from(#31d35c), to(#2bb7da));
+  background: linear-gradient(90deg, #31d35c 0%, #2bb7da 100%);
+}
+
+.menu-mobile .nav-item:hover a {
+  color: white;
 }
 
 .show {
@@ -226,6 +287,7 @@ main {
 }
 
 .showcase {
+  background-color: #fafafa;
   position: relative;
   height: 600px;
   display: -ms-grid;
@@ -264,7 +326,7 @@ main {
 
 .showcase-img svg {
   position: absolute;
-  right: -350px;
+  right: -450px;
   bottom: -90px;
 }
 
@@ -294,14 +356,14 @@ main {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   grid-gap: 25px;
 }
 
 .articles {
-  background: #fafafa;
+  background-color: #fafafa;
   padding: 50px 0;
 }
 
@@ -397,6 +459,10 @@ footer .grid-footer .logos-box .social > svg {
   cursor: pointer;
 }
 
+footer .grid-footer .logos-box .social > svg:hover path {
+  fill: #2acb97;
+}
+
 footer .grid-footer .copyright-box {
   -webkit-box-align: end;
       -ms-flex-align: end;
@@ -409,9 +475,33 @@ footer .grid-footer .copyright-box .btn {
   margin: 0;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
+  .navbar .nav-items .nav-item {
+    width: 80px;
+  }
+  .showcase-img .mockup {
+    height: 771px;
+    width: 630px;
+  }
+  .showcase-img svg {
+    right: -520px;
+  }
+}
+
+@media (max-width: 1050px) {
   .container {
     padding: 20px 100px;
+  }
+  .navbar .nav-items .nav-item {
+    width: 60px;
+  }
+  .showcase-img .mockup {
+    height: 690px;
+    width: 558px;
+  }
+  .showcase-img svg {
+    right: -732px;
+    bottom: -188px;
   }
 }
 
@@ -451,6 +541,11 @@ footer .grid-footer .copyright-box .btn {
             align-items: center;
     text-align: center;
   }
+  .showcase-text .flex {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
   .showcase-img {
     height: 45vh;
     -webkit-box-ordinal-group: 0;
@@ -463,15 +558,17 @@ footer .grid-footer .copyright-box .btn {
   .showcase-img .mockup {
     position: relative;
     right: 0;
-    width: 80%;
-    height: 120%;
+    width: 500px;
+    height: 145%;
     margin-left: auto;
     margin-right: auto;
     display: block;
     z-index: 1;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   .content-top {
-    padding: 0;
+    padding: 0 0 20px 0;
     width: 100%;
     text-align: center;
   }
@@ -527,10 +624,25 @@ footer .grid-footer .copyright-box .btn {
 
 @media (max-width: 500px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: 1;
   }
   .container {
-    padding: 20px;
+    padding: 20px 40px;
+  }
+  .showcase-text {
+    height: 50vh;
+  }
+  .showcase-img {
+    height: 40vh;
+  }
+  .showcase-img svg {
+    right: 0;
+  }
+  .showcase-img .mockup {
+    width: 90%;
+    height: 145%;
+    top: -125px;
   }
   .content-bottom {
     display: block;
