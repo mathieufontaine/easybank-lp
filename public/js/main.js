@@ -20,3 +20,6 @@ const closeMenu = event => {
 hamburger.addEventListener("click", openMenu);
 close.addEventListener("click", closeMenu);
 overlay.addEventListener("click", closeMenu);
+
+// init Animation on Scroll
+AOS.init();

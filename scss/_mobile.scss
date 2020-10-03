@@ -81,7 +81,7 @@
       height: 45vh;
       order: -1;
       svg {
-        right: 0;
+        right: -400px;
       }
       .mockup {
         position: relative;
@@ -142,22 +142,35 @@
 }
 
 @media (max-width: 500px) {
+  .navbar {
+    height: 60px;
+    .nav-items {
+      .nav-item {
+        height: 60px;
+      }
+    }
+  }
   h1 {
     font-size: 1.8rem;
     line-height: 1;
   }
   .container {
-    padding: 20px 40px;
+    padding: 0px 40px;
   }
 
   .showcase {
     &-text {
       height: 50vh;
+      margin-top: 0;
     }
     &-img {
       height: 40vh;
+      // overflow: hidden;
       svg {
-        right: 0;
+        width: 400px;
+        height: 500px;
+        right: -0;
+        bottom: 0px;
       }
       .mockup {
         width: 90%;

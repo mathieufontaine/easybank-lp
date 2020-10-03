@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap");
 
-html {
-  font-size: 18px;
-}
-
 $primary-color: hsl(233, 26%, 24%);
 $light-gray: hsl(0, 0%, 98%);
 $text-color: hsl(233, 8%, 62%);
@@ -14,6 +10,12 @@ $gradient: linear-gradient(
   rgba(49, 211, 92, 1) 0%,
   rgba(43, 183, 218, 1) 100%
 );
+$transition: all 1s ease-in;
+$timing: 1.5s;
+
+html {
+  font-size: 18px;
+}
 
 * {
   box-sizing: border-box;
@@ -26,6 +28,17 @@ body {
   background: white;
   color: $text-color;
   line-height: 1.4;
+}
+
+body::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+}
+body::-webkit-scrollbar-thumb {
+  background: $gradient;
 }
 
 h1,
@@ -126,8 +139,10 @@ main {
 .logo {
   cursor: pointer;
 }
+
 .nav {
   z-index: 10;
+  animation: slideFromTop 2s ease forwards;
   .container {
     padding-top: 0;
     padding-bottom: 0;
@@ -227,10 +242,6 @@ main {
   }
 }
 
-.show {
-  display: inline-block !important;
-}
-
 .hide {
   display: none !important;
 }
@@ -250,6 +261,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    animation: slideFromLeft $timing ease-in forwards;
   }
   &-img {
     position: relative;
@@ -259,6 +271,7 @@ main {
       //   top: -300px;
       right: -450px;
       bottom: -90px;
+      animation: slideFromRight $timing ease-in forwards;
     }
     .mockup {
       position: absolute;
@@ -266,6 +279,7 @@ main {
       right: -70px;
       height: 840px;
       width: 700px;
+      animation: slideFromRight $timing ease-in forwards;
     }
   }
 }
@@ -364,3 +378,30 @@ footer {
 }
 
 @import "mobile";
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(800px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-800px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-8000px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
