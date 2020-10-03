@@ -83,9 +83,18 @@ ul {
 img {
   width: 100%;
 }
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 main {
   width: 100vw;
   overflow: hidden;
+  position: relative;
 }
 .container {
   position: relative;
@@ -126,6 +135,51 @@ main {
   }
 }
 
+.nav-mobile {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  .hamburger,
+  .close {
+    cursor: pointer;
+  }
+  .close {
+    display: none;
+  }
+}
+
+.menu-mobile {
+  padding: 20px;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  left: 40px;
+  border-radius: 6px;
+  margin-right: auto;
+  margin-left: auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 2;
+  a {
+    padding: 16px;
+    color: $primary-color;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+}
+
+.show {
+  display: inline-block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
 .showcase {
   position: relative;
   height: 600px;
@@ -135,6 +189,7 @@ main {
   align-items: center;
 
   &-text {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -190,11 +245,16 @@ main {
       height: 100%;
       background: white;
       cursor: pointer;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+
       .thumbnail {
         height: 200px;
         img {
           object-fit: cover;
           height: 100%;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
         }
       }
       .text {
@@ -235,6 +295,7 @@ footer {
     }
     .copyright-box {
       align-items: flex-end;
+      text-align: end;
       p,
       .btn {
         margin: 0;
@@ -242,3 +303,5 @@ footer {
     }
   }
 }
+
+@import "mobile";
