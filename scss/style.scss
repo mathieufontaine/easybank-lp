@@ -222,6 +222,7 @@ main {
   justify-content: space-around;
   text-align: center;
   z-index: 2;
+  height: 10vh;
   .nav-item {
     width: 100%;
     padding: 16px;
@@ -247,9 +248,9 @@ main {
 }
 
 .showcase {
+  height: 90vh;
   background-color: $light-gray;
   position: relative;
-  height: 600px;
   display: grid;
   grid-template-columns: 1.7fr 2fr;
   justify-content: flex-start;
