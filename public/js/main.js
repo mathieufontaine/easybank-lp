@@ -53,8 +53,9 @@ const articlesAnimation = () => {
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".articles",
-      start: "center 80%",
-      end: "center 20%",
+      start: "top 80%",
+      // end: "center 20%",
+      markers: true,
       defaults: {
         ease: "power1.inOut"
       }
