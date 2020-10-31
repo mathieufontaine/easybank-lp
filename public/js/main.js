@@ -55,7 +55,6 @@ const articlesAnimation = () => {
       trigger: ".articles",
       start: "top 80%",
       // end: "center 20%",
-      markers: true,
       defaults: {
         ease: "power1.inOut"
       }
